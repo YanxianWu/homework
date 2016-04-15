@@ -40,26 +40,30 @@ namespace hebinlieyin_unit_test
             using (StreamReader inputFile2 = new StreamReader(inputFileName2))
             using (StreamWriter outputFile = new StreamWriter(outputFileName))
             {
-                string line;
-                string line2;
-                string line3;
-                string line4; //test
-                line = inputFile.ReadLine();
-                line2 = inputFile2.ReadLine();
-                line3 = inputFile2.ReadLine();
-                line4 = inputFile2.ReadLine();
-                string[] s = line2.Split(new char[3] { '$', '}', '{' });//分割字符串
-                while ((line = inputFile.ReadLine()) != null)
-                {
-                    string[] s1 = line.Split(new char[] { '\t' });//分割字符串
-                    string outputLine = s1[0] + s[3] + s1[1] + s[6] + s1[2] + s[9];
-                    Console.WriteLine(outputLine);
-                    Console.WriteLine(line3);
-                    Console.WriteLine(line4);
-                    outputFile.WriteLine(outputLine);
-                    outputFile.WriteLine(line3);
-                    outputFile.WriteLine(line4);//调整格式
-                }
+                HB(inputFile,inputFile2,outputFile);
+            }
+        }
+        public static void HB(TextReader inputFile, TextReader inputFile2, TextWriter outputFile)
+        {
+            string line;
+            string line2;
+            string line3;
+            string line4; //test
+            line = inputFile.ReadLine();
+            line2 = inputFile2.ReadLine();
+            line3 = inputFile2.ReadLine();
+            line4 = inputFile2.ReadLine();
+            string[] s = line2.Split(new char[3] { '$', '}', '{' });//分割字符串
+            while ((line = inputFile.ReadLine()) != null)
+            {
+                string[] s1 = line.Split(new char[] { '\t' });//分割字符串
+                string outputLine = s1[0] + s[3] + s1[1] + s[6] + s1[2] + s[9];
+                Console.WriteLine(outputLine);
+                Console.WriteLine(line3);
+                Console.WriteLine(line4);
+                outputFile.WriteLine(outputLine);
+                outputFile.WriteLine(line3);
+                outputFile.WriteLine(line4);//调整格式
             }
         }
     }
